@@ -31,42 +31,55 @@ namespace MvcHomeWork.Controllers
                 case "name_desc":
                     data = data.OrderByDescending(p => p.客戶名稱);
                     break;
+
                 case "統一編號":
                     data = data.OrderBy(p => p.統一編號);
                     break;
+
                 case "統一編號_desc":
                     data = data.OrderByDescending(p => p.統一編號);
                     break;
+
                 case "客戶分類":
                     data = data.OrderBy(p => p.客戶分類);
                     break;
+
                 case "客戶分類_desc":
                     data = data.OrderByDescending(p => p.客戶分類);
                     break;
+
                 case "電話":
                     data = data.OrderBy(p => p.電話);
                     break;
+
                 case "電話_desc":
                     data = data.OrderByDescending(p => p.電話);
                     break;
+
                 case "傳真":
                     data = data.OrderBy(p => p.傳真);
                     break;
+
                 case "傳真_desc":
                     data = data.OrderByDescending(p => p.傳真);
                     break;
+
                 case "地址":
                     data = data.OrderBy(p => p.地址);
                     break;
+
                 case "地址_desc":
                     data = data.OrderByDescending(p => p.地址);
                     break;
+
                 case "Email":
                     data = data.OrderBy(p => p.Email);
                     break;
+
                 case "Email_desc":
                     data = data.OrderByDescending(p => p.Email);
                     break;
+
                 default:
                     data = data.OrderBy(p => p.客戶名稱);
                     break;
@@ -228,6 +241,17 @@ namespace MvcHomeWork.Controllers
             return File(fs.ToArray(),
                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                 $"客戶資料{DateTime.Now.ToString("yyyyMMddHHmmssfff") }.xlsx");
+        }
+
+        public ActionResult DataToJson()
+        {
+            return Json(
+                new
+                {
+                    id = 1,
+                    name = "Olga",
+                    CreateTime = DateTime.Now
+                }, JsonRequestBehavior.AllowGet);
         }
     }
 }
